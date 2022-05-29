@@ -5,7 +5,7 @@
     <button @click="generateQrCode">Generate</button>
     <button @click="download">Download</button>
 
-    <img v-if="scope.qrcode" :src="scope.qrcode" alt="" />
+    <img v-if="scope.qrcode" :src="scope.qrcode" alt="" class="qrcode-preview"/>
   </div>
 </template>
 
@@ -33,5 +33,9 @@ function download() {
 }
 </script>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
+.qrcode-preview {
+  width: 200px;
+  height: 200px;
+}
 </style>
