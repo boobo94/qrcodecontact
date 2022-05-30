@@ -1,14 +1,12 @@
 <template>
-  <div>
-    <div class="language-selector">
-      <h2>{{t('language')}}</h2>
-      <img :src="imageFlag" alt="" />
-      <select v-model="locale">
-        <option v-for="(lang, i) in langs" :key="`lang-${i}`" :value="lang">
-          {{ lang }}
-        </option>
-      </select>
-    </div>
+  <div class="language-selector">
+    <h3>{{ t("language") }}</h3>
+    <img :src="imageFlag" alt="" />
+    <select v-model="locale">
+      <option v-for="(lang, i) in langs" :key="`lang-${i}`" :value="lang">
+        {{ lang }}
+      </option>
+    </select>
   </div>
 </template>
 <script setup>
