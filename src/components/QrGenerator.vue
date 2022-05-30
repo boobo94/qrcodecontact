@@ -4,6 +4,10 @@
       <h1>{{ t("qr-code") }}</h1>
     </div>
 
+     <div class="row justify-center">
+      <LanguageSelector/>
+    </div>
+
     <div class="row justify-center">
       <input
         type="text"
@@ -34,6 +38,7 @@
 </template>
 
 <script setup>
+import LanguageSelector from '@/components/LanguageSelector.vue';
 import { reactive, ref } from 'vue';
 import QRCode from 'qrcode';
 import { useI18n } from 'vue-i18n';
