@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="row justify-center">
-      <h1>Qr Code</h1>
+      <h1>{{ t("qr-code") }}</h1>
     </div>
 
     <div class="row justify-center">
@@ -14,13 +14,20 @@
     </div>
 
     <div class="row justify-center">
-      <button @click="addQrCodeToCanvas" class="btn">Generate</button>
+      <button @click="addQrCodeToCanvas" class="btn">
+        {{ t("generate") }}
+      </button>
     </div>
 
     <div class="row justify-center">
       <div v-show="scope.qrcode" class="preview-container">
-        <canvas ref="canvasResult" class="canvas-draw" width="250" height="250"></canvas>
-        <button @click="download" class="btn">Download</button>
+        <canvas
+          ref="canvasResult"
+          class="canvas-draw"
+          width="250"
+          height="250"
+        ></canvas>
+        <button @click="download" class="btn">{{ t("download") }}</button>
       </div>
     </div>
   </div>
@@ -29,19 +36,22 @@
 <script setup>
 import { reactive, ref } from 'vue';
 import QRCode from 'qrcode';
+import { useI18n } from 'vue-i18n';
 
 const scope = reactive({
   phoneNumber: '',
   qrcode: null,
   ctx: null,
 });
-
+const { t } = useI18n();
 const canvasResult = ref(null);
 
 async function addQrCodeToCanvas() {
-  console.log(scope.phoneNumber);
   scope.qrcode = await QRCode.toDataURL(scope.phoneNumber);
+
   const ctx = canvasResult.value.getContext('2d');
+
+  // set the background for canvas
   ctx.fillStyle = '#fff';
   ctx.fillRect(0, 0, canvasResult.value.width, canvasResult.value.height);
   ctx.fillStyle = '#000';
@@ -50,18 +60,30 @@ async function addQrCodeToCanvas() {
   const img = new Image(200, 200);
   img.src = scope.qrcode;
   img.onload = () => {
-    ctx.drawImage(img, ((canvasResult.value.width - img.width) / 2), 0, img.width, img.height);
+    ctx.drawImage(
+      img,
+      (canvasResult.value.width - img.width) / 2,
+      0,
+      img.width,
+      img.height,
+    );
   };
 
   // add cta to canvas
   ctx.font = '18px Arial';
   const ctaText = ctx.measureText('Suna-ma');
-  ctx.fillText('Call me', ((canvasResult.value.width - ctaText.width) / 2), (img.height + 18));
+  ctx.fillText(
+    'Call me',
+    (canvasResult.value.width - ctaText.width) / 2,
+    img.height + 18,
+  );
 
   const phoneNumberText = ctx.measureText(scope.phoneNumber);
-  ctx.fillText(scope.phoneNumber,
-    ((canvasResult.value.width - phoneNumberText.width) / 2),
-    (img.height + 40));
+  ctx.fillText(
+    scope.phoneNumber,
+    (canvasResult.value.width - phoneNumberText.width) / 2,
+    img.height + 40,
+  );
 }
 
 function download() {
@@ -123,3 +145,20 @@ function download() {
   letter-spacing: 0.0892857143em;
 }
 </style>
+
+<i18n>
+{
+  "en": {
+    "qr-code": "QR Code Parking",
+    "phone-number": "Phone number",
+    "generate": "Generate",
+    "download": "Download"
+  },
+  "ro": {
+    "qr-code": "QR Code Parking",
+    "phone-number": "Număr de telefon",
+    "generate": "Generează",
+    "download": "Descarcă"
+  },
+}
+</i18n>
