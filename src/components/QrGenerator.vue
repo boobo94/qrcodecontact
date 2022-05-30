@@ -73,7 +73,7 @@ async function addQrCodeToCanvas() {
   ctx.font = '18px Arial';
   const ctaText = ctx.measureText('Suna-ma');
   ctx.fillText(
-    'Call me',
+    t('cta'),
     (canvasResult.value.width - ctaText.width) / 2,
     img.height + 18,
   );
@@ -152,13 +152,15 @@ function download() {
     "qr-code": "QR Code Parking",
     "phone-number": "Phone number",
     "generate": "Generate",
-    "download": "Download"
+    "download": "Download",
+    "cta": "Call me"
   },
   "ro": {
     "qr-code": "QR Code Parking",
     "phone-number": "Număr de telefon",
     "generate": "Generează",
-    "download": "Descarcă"
+    "download": "Descarcă",
+    "cta": "Sună-mă"
   },
 }
 </i18n>
