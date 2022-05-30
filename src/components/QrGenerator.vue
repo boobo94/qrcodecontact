@@ -8,18 +8,18 @@
       <input
         type="text"
         v-model="scope.phoneNumber"
-        @input="generateQrCode"
+        @input="addQrCodeToCanvas"
         class="phone-input"
       />
     </div>
 
     <div class="row justify-center">
-      <button @click="generateQrCode" class="btn">Generate</button>
+      <button @click="addQrCodeToCanvas" class="btn">Generate</button>
     </div>
 
     <div class="row justify-center">
-      <div v-if="scope.qrcode" class="preview-container">
-        <img :src="scope.qrcode" alt="qrcode preview" class="qrcode-preview" />
+      <div v-show="scope.qrcode" class="preview-container">
+        <canvas ref="canvasResult" class="canvas-draw" width="250" height="250"></canvas>
         <button @click="download" class="btn">Download</button>
       </div>
     </div>
@@ -27,21 +27,46 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 import QRCode from 'qrcode';
 
 const scope = reactive({
   phoneNumber: '',
   qrcode: null,
+  ctx: null,
 });
 
-async function generateQrCode() {
+const canvasResult = ref(null);
+
+async function addQrCodeToCanvas() {
+  console.log(scope.phoneNumber);
   scope.qrcode = await QRCode.toDataURL(scope.phoneNumber);
+  const ctx = canvasResult.value.getContext('2d');
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(0, 0, canvasResult.value.width, canvasResult.value.height);
+  ctx.fillStyle = '#000';
+
+  // create new image and add it to canvas
+  const img = new Image(200, 200);
+  img.src = scope.qrcode;
+  img.onload = () => {
+    ctx.drawImage(img, ((canvasResult.value.width - img.width) / 2), 0, img.width, img.height);
+  };
+
+  // add cta to canvas
+  ctx.font = '18px Arial';
+  const ctaText = ctx.measureText('Suna-ma');
+  ctx.fillText('Call me', ((canvasResult.value.width - ctaText.width) / 2), (img.height + 18));
+
+  const phoneNumberText = ctx.measureText(scope.phoneNumber);
+  ctx.fillText(scope.phoneNumber,
+    ((canvasResult.value.width - phoneNumberText.width) / 2),
+    (img.height + 40));
 }
 
 function download() {
   const fileLink = document.createElement('a');
-  fileLink.href = scope.qrcode;
+  fileLink.href = canvasResult.value.toDataURL();
   fileLink.setAttribute('download', scope.phoneNumber);
   fileLink.setAttribute('target', '_blank');
   document.body.appendChild(fileLink);
@@ -74,6 +99,11 @@ function download() {
 .preview-container {
   display: flex;
   flex-direction: column;
+
+  .canvas-draw {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 
   .qrcode-preview {
     width: 200px;
