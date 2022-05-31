@@ -2,7 +2,7 @@
   <div class="language-selector">
     <h3>{{ t("language") }}</h3>
     <img :src="imageFlag" alt="" />
-    <select v-model="locale">
+    <select v-model="$i18n.locale">
       <option v-for="(lang, i) in langs" :key="`lang-${i}`" :value="lang">
         {{ lang }}
       </option>
