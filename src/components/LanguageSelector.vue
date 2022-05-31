@@ -15,7 +15,8 @@ import { useI18n } from 'vue-i18n';
 
 const langs = ['en', 'ro'];
 const { locale, t } = useI18n();
-const imageFlag = computed(() => `/images/${locale.value}-flag.png`);
+// eslint-disable-next-line import/no-dynamic-require, global-require
+const imageFlag = computed(() => require(`@/assets/images/${locale.value}-flag.png`));
 </script>
 <style>
 .language-selector {
