@@ -235,8 +235,8 @@ function download() {
     "page_title": "QR Code Contact",
     "download": "Descarcă",
     "line1_label": "Call to action",
-    "line2_label": "Alege continutul QR Code",
-    "title_step1": "Pasul 1: Alege continutul",
+    "line2_label": "Alege conținutul QR Code",
+    "title_step1": "Pasul 1: Alege conținutul",
     "title_step2": "Pasul 2: Previzualizare"
   },
 }
