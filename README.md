@@ -25,18 +25,14 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Create a github pages build
 
-create a new file
-
-```sh
-touch vue.config.js
-```
-
-witht the following content
+Add in the root object
 
 ```js
 module.exports = {
-  publicPath: "/qrparking/",
+  ...
+  publicPath: "/qrcodecontact/",
   outputDir: "dist",
+  ...
 };
 ```
 
