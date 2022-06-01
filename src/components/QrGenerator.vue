@@ -4,8 +4,8 @@
       <h1>{{ t("page_title") }}</h1>
     </div>
 
-     <div class="row justify-content-center">
-      <h2>{{t("page_subtitle")}}</h2>
+    <div class="row justify-content-center">
+      <h2>{{ t("page_subtitle") }}</h2>
     </div>
 
     <div class="container">
@@ -43,7 +43,6 @@
               />
             </div>
           </div>
-
         </div>
 
         <div
@@ -69,6 +68,9 @@
         </div>
       </div>
     </div>
+    <footer>
+      <p>Made with ❤ by <a href="https://cmevo.com/">Cmevo Digital</a></p>
+    </footer>
   </div>
 </template>
 
@@ -87,7 +89,8 @@ const { t } = useI18n({
   messages: {
     en: {
       page_title: 'QR Code Contact',
-      page_subtitle: 'Are you tired to share your phone number or email again and again? Generate QR Code for your contact!',
+      page_subtitle:
+        'Are you tired to share your phone number or email again and again? Generate QR Code for your contact!',
       download: 'Download',
       line1_label: 'Call to action',
       line1_placeholder: 'Call me',
@@ -97,7 +100,8 @@ const { t } = useI18n({
     },
     ro: {
       page_title: 'QR Code Contact',
-      page_subtitle: 'Te-ai săturat să distribui numărul de telefon sau adresa de email? Generează codul QR pentru a fi contactat!',
+      page_subtitle:
+        'Te-ai săturat să distribui numărul de telefon sau adresa de email? Generează codul QR pentru a fi contactat!',
       download: 'Descarcă',
       line1_label: 'Call to action',
       line1_placeholder: 'Sună-mă',
@@ -162,7 +166,6 @@ function download() {
   fileLink.click();
   fileLink.remove();
 }
-
 </script>
 
 <style lang="scss" scoped>
@@ -249,10 +252,21 @@ function download() {
   position: relative;
 }
 
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #81c784;
+
+  p {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+
 @media all and (max-width: 540px) {
   .row {
     flex-direction: column;
   }
-
 }
 </style>
