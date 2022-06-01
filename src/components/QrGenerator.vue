@@ -69,7 +69,7 @@
       </div>
     </div>
     <footer>
-      <p>Made with ❤ by <a href="https://cmevo.com/">Cmevo Digital</a></p>
+      <p>Made with ❤ by <a href="https://cmevo.com/" target="_blank">Cmevo Digital</a></p>
     </footer>
   </div>
 </template>
