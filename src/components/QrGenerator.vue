@@ -4,6 +4,10 @@
       <h1>{{ t("page_title") }}</h1>
     </div>
 
+     <div class="row justify-content-center">
+      <h2>{{t("page_subtitle")}}</h2>
+    </div>
+
     <div class="container">
       <div class="row">
         <div class="column">
@@ -20,6 +24,7 @@
               <input
                 type="text"
                 name="line2"
+                placeholder="ex: +1 (555) 555-5555"
                 v-model="scope.line2"
                 @input="addQrCodeToCanvas"
               />
@@ -32,6 +37,7 @@
               <input
                 type="text"
                 name="line1"
+                :placeholder="t('line1_placeholder')"
                 v-model="scope.line1"
                 @input="addQrCodeToCanvas"
               />
@@ -77,7 +83,30 @@ const scope = reactive({
   line2: '',
   hasCanvas: false,
 });
-const { t } = useI18n();
+const { t } = useI18n({
+  messages: {
+    en: {
+      page_title: 'QR Code Contact',
+      page_subtitle: 'Are you tired to share your phone number or email again and again? Generate QR Code for your contact!',
+      download: 'Download',
+      line1_label: 'Call to action',
+      line1_placeholder: 'Call me',
+      line2_label: 'Fill the phone number or email',
+      title_step1: 'Step 1: Set the content',
+      title_step2: 'Step 2: Preview',
+    },
+    ro: {
+      page_title: 'QR Code Contact',
+      page_subtitle: 'Te-ai săturat să distribui numărul de telefon sau adresa de email? Generează codul QR pentru a fi contactat!',
+      download: 'Descarcă',
+      line1_label: 'Call to action',
+      line1_placeholder: 'Sună-mă',
+      line2_label: 'Introdu numărul de telefon sau adresa de email',
+      title_step1: 'Pasul 1: Alege conținutul',
+      title_step2: 'Pasul 2: Previzualizare',
+    },
+  },
+});
 const canvasResult = ref(null);
 
 async function addQrCodeToCanvas() {
@@ -227,24 +256,3 @@ function download() {
 
 }
 </style>
-
-<i18n>
-{
-  "en": {
-    "page_title": "QR Code Contact",
-    "download": "Download",
-    "line1_label": "Call to action",
-    "line2_label": "Choose the QR Code content",
-    "title_step1": "Step 1: Set the content",
-    "title_step2": "Step 2: Preview"
-  },
-  "ro": {
-    "page_title": "QR Code Contact",
-    "download": "Descarcă",
-    "line1_label": "Call to action",
-    "line2_label": "Alege conținutul QR Code",
-    "title_step1": "Pasul 1: Alege conținutul",
-    "title_step2": "Pasul 2: Previzualizare"
-  },
-}
-</i18n>
