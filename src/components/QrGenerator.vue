@@ -219,6 +219,13 @@ function download() {
   opacity: 1;
   position: relative;
 }
+
+@media all and (max-width: 540px) {
+  .row {
+    flex-direction: column;
+  }
+
+}
 </style>
 
 <i18n>
