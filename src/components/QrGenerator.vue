@@ -18,7 +18,7 @@
             <LanguageSelector />
           </div>
 
-          <div class="row align-items-center">
+          <div class="row">
             <div class="form-field">
               <label for="line2">{{ t("line2_label") }}</label>
               <input
@@ -31,7 +31,7 @@
             </div>
           </div>
 
-          <div class="row align-items-center">
+          <div class="row">
             <div class="form-field">
               <label for="line1">{{ t("line1_label") }}</label>
               <input
@@ -172,6 +172,7 @@ function download() {
 .container {
   display: flex;
   justify-content: space-around;
+  margin-bottom: 100px;
 }
 
 .row {
@@ -190,10 +191,6 @@ function download() {
 
 .justify-content-center {
   justify-content: center;
-}
-
-.align-items-center {
-  align-items: center;
 }
 
 .form-field {
