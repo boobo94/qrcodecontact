@@ -68,9 +68,7 @@
         </div>
       </div>
     </div>
-    <footer>
-      <p>Made with ❤ by <a href="https://cmevo.com/" target="_blank">Cmevo Digital</a> | <router-link :to="{path: 'privacy-policy'}">Privacy Policy</router-link></p>
-    </footer>
+
   </div>
 </template>
 
@@ -169,30 +167,6 @@ function download() {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 100px;
-}
-
-.row {
-  display: flex;
-  flex-wrap: nowrap;
-  padding: 1rem;
-
-  .column {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex: 1;
-    padding: 1rem;
-  }
-}
-
-.justify-content-center {
-  justify-content: center;
-}
-
 .form-field {
   display: flex;
   flex-direction: column;
@@ -249,21 +223,4 @@ function download() {
   position: relative;
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-background-color: #81c784;
-
-  p {
-    font-size: 1.5rem;
-    text-align: center;
-  }
-}
-
-@media all and (max-width: 540px) {
-  .row {
-    flex-direction: column;
-  }
-}
 </style>

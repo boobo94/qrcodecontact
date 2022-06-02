@@ -1,6 +1,11 @@
 <template>
   <router-view/>
+    <FooterSection />
 </template>
+
+<script setup>
+import FooterSection from './components/FooterSection.vue';
+</script>
 
 <style>
 body {

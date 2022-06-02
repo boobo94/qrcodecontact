@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="about-container">
     <h1>Privacy Policy for Cmevo Digital SRL</h1>
 
     <p>
@@ -152,7 +152,7 @@
 </template>
 
 <style scoped>
-.container {
+.about-container {
   padding: 20px;
 }
 </style>
