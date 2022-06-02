@@ -69,7 +69,7 @@
       </div>
     </div>
     <footer>
-      <p>Made with ❤ by <a href="https://cmevo.com/" target="_blank">Cmevo Digital</a></p>
+      <p>Made with ❤ by <a href="https://cmevo.com/" target="_blank">Cmevo Digital</a> | <a href="/privacy-policy">Privacy Policy</a></p>
     </footer>
   </div>
 </template>
@@ -253,6 +253,7 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+background-color: #81c784;
 
   p {
     font-size: 1.5rem;
