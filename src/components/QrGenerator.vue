@@ -198,7 +198,7 @@ function download() {
   flex-direction: column;
 
   input {
-    border: 1px solid #d7d9dd;
+    border: 1px solid #81c784;;
     border-radius: 36px;
     opacity: 1;
     padding: 5px;
@@ -253,7 +253,6 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: #81c784;
 
   p {
     font-size: 1.5rem;
