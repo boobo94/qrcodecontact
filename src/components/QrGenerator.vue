@@ -69,7 +69,7 @@
       </div>
     </div>
     <footer>
-      <p>Made with ❤ by <a href="https://cmevo.com/" target="_blank">Cmevo Digital</a> | <a href="/privacy-policy">Privacy Policy</a></p>
+      <p>Made with ❤ by <a href="https://cmevo.com/" target="_blank">Cmevo Digital</a> | <router-link :to="{path: 'privacy-policy'}">Privacy Policy</router-link></p>
     </footer>
   </div>
 </template>
