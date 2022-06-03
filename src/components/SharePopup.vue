@@ -15,14 +15,14 @@
                 :href="`https://facebook.com/sharer.php?u=${currentUrl}`"
                 rel="nofollow"
                 target="_blank"
-                ><img :src="twitterImage"
+                ><img :src="facebookImage"
               /></a>
               <a
                 class="icon"
                 :href="`https://twitter.com/intent/tweet?text=${currentUrl}`"
                 rel="nofollow"
                 target="_blank"
-                ><img :src="facebookImage"
+                ><img :src="twitterImage"
               /></a>
 
               <a
