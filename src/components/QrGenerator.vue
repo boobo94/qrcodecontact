@@ -1,5 +1,7 @@
 <template>
   <div>
+    <SharePopup v-if="scope.showSharePopup" @onClose="scope.showSharePopup=!scope.showSharePopup" />
+
     <div class="row justify-content-center">
       <h1>{{ t("page_title") }}</h1>
     </div>
@@ -68,7 +70,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -77,11 +78,13 @@ import LanguageSelector from '@/components/LanguageSelector.vue';
 import { reactive, ref } from 'vue';
 import QRCode from 'qrcode';
 import { useI18n } from 'vue-i18n';
+import SharePopup from './SharePopup.vue';
 
 const scope = reactive({
   line1: '',
   line2: '',
   hasCanvas: false,
+  showSharePopup: false,
 });
 const { t } = useI18n({
   messages: {
@@ -163,6 +166,7 @@ function download() {
   document.body.appendChild(fileLink);
   fileLink.click();
   fileLink.remove();
+  scope.showSharePopup = true;
 }
 </script>
 
@@ -172,7 +176,7 @@ function download() {
   flex-direction: column;
 
   input {
-    border: 1px solid #81c784;;
+    border: 1px solid #81c784;
     border-radius: 36px;
     opacity: 1;
     padding: 5px;
@@ -222,5 +226,4 @@ function download() {
   opacity: 1;
   position: relative;
 }
-
 </style>
