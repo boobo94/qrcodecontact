@@ -161,7 +161,7 @@ async function addQrCodeToCanvas() {
 function download() {
   const fileLink = document.createElement('a');
   fileLink.href = canvasResult.value.toDataURL();
-  fileLink.setAttribute('download', scope.line1);
+  fileLink.setAttribute('download', scope.line2);
   fileLink.setAttribute('target', '_blank');
   document.body.appendChild(fileLink);
   fileLink.click();
