@@ -1,4 +1,4 @@
-# qrparking
+# QR Code Contact by [Cmevo Digital](https://cmevo.com)
 
 Are you tired to share your phone number or email again and again? Generate QR Code for your contact!
 
