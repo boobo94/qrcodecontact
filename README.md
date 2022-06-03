@@ -1,5 +1,11 @@
 # qrparking
 
+Are you tired to share your phone number or email again and again? Generate QR Code for your contact!
+
+Generate qr code and use it for people to contact you faster, just by scanning the qr code!
+
+![project preview](/docs/project-preview.png)
+
 ## Project setup
 ```
 npm install
