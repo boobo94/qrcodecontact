@@ -1,6 +1,9 @@
 <template>
   <div>
-    <SharePopup v-if="scope.showSharePopup" @onClose="scope.showSharePopup=!scope.showSharePopup" />
+    <SharePopup
+      v-if="scope.showSharePopup"
+      @onClose="scope.showSharePopup = !scope.showSharePopup"
+    />
 
     <div class="row justify-content-center">
       <h1>{{ t("page_title") }}</h1>
@@ -70,6 +73,13 @@
         </div>
       </div>
     </div>
+
+    <div class="row justify-content-center">
+      <p>
+        {{ t("contact_title") }}
+        <a href="mailto:contact@cmevo.com">contact@cmevo.com</a>
+      </p>
+    </div>
   </div>
 </template>
 
@@ -98,6 +108,7 @@ const { t } = useI18n({
       line2_label: 'Fill the phone number or email',
       title_step1: 'Step 1: Set the content',
       title_step2: 'Step 2: Preview',
+      contact_title: 'Do you need to order a sticker or contact?',
     },
     ro: {
       page_title: 'QR Code Contact',
@@ -109,6 +120,7 @@ const { t } = useI18n({
       line2_label: 'Introdu numărul de telefon sau adresa de email',
       title_step1: 'Pasul 1: Alege conținutul',
       title_step2: 'Pasul 2: Previzualizare',
+      contact_title: 'Vrei să comanzi un sticker sau să ne contactezi?',
     },
   },
 });
