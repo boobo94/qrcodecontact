@@ -10,11 +10,18 @@
   </div>
 </template>
 <script setup>
-import { computed } from 'vue';
+import { computed, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
+import i18n from '@/i18n';
 
 const langs = ['en', 'ro'];
 const { locale, t } = useI18n();
+
+onMounted(() => {
+// detect the language of browser
+  i18n.global.locale.value = (navigator.language || navigator.userLanguage).substr(0, 2);
+});
+
 // eslint-disable-next-line import/no-dynamic-require, global-require
 const imageFlag = computed(() => require(`@/assets/images/${locale.value}-flag.png`));
 </script>
