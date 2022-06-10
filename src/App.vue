@@ -11,7 +11,7 @@ import FooterSection from './components/FooterSection.vue';
 body {
   padding: 0;
   margin: 0;
-  background-image: url("assets/images/background.jpg");
+  background-color: #4FC3F7;
   background-size: cover;
   background-repeat: no-repeat;
   font-family: Arial, Helvetica, sans-serif;
