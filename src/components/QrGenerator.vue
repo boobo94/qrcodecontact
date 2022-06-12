@@ -161,6 +161,16 @@ async function addQrCodeToCanvas() {
         img.width,
         img.height,
       );
+
+      // add sponsor text to canvas
+      const sponsor = 'Software by cmevo.com';
+      ctx.font = '12px Arial';
+      const sponsorText = ctx.measureText(sponsor);
+      ctx.fillText(
+        sponsor,
+        (canvasResult.value.width - sponsorText.width) / 2,
+        20,
+      );
     };
   }
 
