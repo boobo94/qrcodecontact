@@ -126,6 +126,19 @@ const { t } = useI18n({
 });
 const canvasResult = ref(null);
 
+function detectContacType(text) {
+  const emailRegexp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+  const phoneRegexp = /^(\+[1-9]{1})?[0-9]{3,14}$/;
+
+  if (emailRegexp.test(text)) {
+    return `mailto:${text}`;
+  } if (phoneRegexp.test(text)) {
+    return `tel:${text}`;
+  }
+
+  return text;
+}
+
 async function addQrCodeToCanvas() {
   scope.hasCanvas = !!(scope.line1 || scope.line2);
 
@@ -139,7 +152,7 @@ async function addQrCodeToCanvas() {
   // create new image and add it to canvas
   const img = new Image(200, 200);
   if (scope.line2) {
-    img.src = await QRCode.toDataURL(scope.line2);
+    img.src = await QRCode.toDataURL(detectContacType(scope.line2));
     img.onload = () => {
       ctx.drawImage(
         img,
@@ -173,7 +186,7 @@ async function addQrCodeToCanvas() {
 function download() {
   const fileLink = document.createElement('a');
   fileLink.href = canvasResult.value.toDataURL();
-  fileLink.setAttribute('download', scope.line2);
+  fileLink.setAttribute('download', detectContacType(scope.line2));
   fileLink.setAttribute('target', '_blank');
   document.body.appendChild(fileLink);
   fileLink.click();
