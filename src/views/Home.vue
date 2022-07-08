@@ -23,6 +23,7 @@ import QrGenerator from '@/components/QrGenerator.vue';
     flex-direction: column;
     justify-content: space-between;
     flex: 1;
+    padding: 10px;
   }
 }
 
