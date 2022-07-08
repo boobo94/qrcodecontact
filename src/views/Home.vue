@@ -17,14 +17,12 @@ import QrGenerator from '@/components/QrGenerator.vue';
 .row {
   display: flex;
   flex-wrap: nowrap;
-  padding: 1rem;
 
   .column {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     flex: 1;
-    padding: 1rem;
   }
 }
 
