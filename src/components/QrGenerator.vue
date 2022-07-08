@@ -5,14 +5,6 @@
       @onClose="scope.showSharePopup = !scope.showSharePopup"
     />
 
-    <div class="row justify-content-center">
-      <h1>{{ t("page_title") }}</h1>
-    </div>
-
-    <div class="row justify-content-center">
-      <h2>{{ t("page_subtitle") }}</h2>
-    </div>
-
     <div class="container">
       <div class="row">
         <div class="column">
@@ -74,12 +66,6 @@
       </div>
     </div>
 
-    <div class="row justify-content-center">
-      <p>
-        {{ t("contact_title") }}
-        <a href="mailto:contact@cmevo.com">contact@cmevo.com</a>
-      </p>
-    </div>
   </div>
 </template>
 
@@ -99,28 +85,20 @@ const scope = reactive({
 const { t } = useI18n({
   messages: {
     en: {
-      page_title: 'QR Code Contact',
-      page_subtitle:
-        'Are you tired to share your phone number or email again and again? Generate QR Code for your contact!',
       download: 'Download',
       line1_label: 'Call to action',
       line1_placeholder: 'Call me',
       line2_label: 'Fill the phone number or email',
       title_step1: 'Step 1: Set the content',
       title_step2: 'Step 2: Preview',
-      contact_title: 'Do you need to order a sticker or contact?',
     },
     ro: {
-      page_title: 'QR Code Contact',
-      page_subtitle:
-        'Te-ai săturat să distribui numărul de telefon sau adresa de email? Generează codul QR pentru a fi contactat!',
       download: 'Descarcă',
       line1_label: 'Call to action',
       line1_placeholder: 'Sună-mă',
       line2_label: 'Introdu numărul de telefon sau adresa de email',
       title_step1: 'Pasul 1: Alege conținutul',
       title_step2: 'Pasul 2: Previzualizare',
-      contact_title: 'Vrei să comanzi un sticker sau să ne contactezi?',
     },
   },
 });
