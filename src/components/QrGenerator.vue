@@ -141,7 +141,7 @@ async function addQrCodeToCanvas() {
       );
 
       // add sponsor text to canvas
-      const sponsor = 'Software by cmevo.com';
+      const sponsor = 'Software by cmevo.com/parkqr';
       ctx.font = '12px Arial';
       const sponsorText = ctx.measureText(sponsor);
       ctx.fillText(
