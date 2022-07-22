@@ -69,7 +69,7 @@ const { t } = useI18n({
   },
 });
 
-const currentUrl = window.location.href;
+const currentUrl = 'https://cmevo.com/parkqr';
 
 const twitterImage = computed(() => require('@/assets/images/twitter.png'));
 const facebookImage = computed(() => require('@/assets/images/facebook.png'));
